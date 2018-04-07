@@ -1,0 +1,46 @@
+Desenvolvimento de um sistema web para gerenciamento de clientes que vendem o produto
+Este foi separada em três partes construção da arquitetura do banco de dados,
+desenvolvimento de uma REST API e por último o desenvolvimento do frontend.
+
+	Para o desenvolvimento do sistema primeiro foi estruturado o banco de dados.
+ O primeiro passo foi a escolha das ferramentas, que foi mySQL e o
+MySQL workbench, por dois motivos, o primeiro deles é a experiencia anterior com os dois
+e segundo por ser um banco de dados extremamente integro. Ao contruir a estrutura de banco de dados
+foi estudado as nescessidades padrões de um sistema, como usuário, em seguida foi necessário saber 
+quais dados teriam que ser guardados, foi conversado com os supervisores
+quais seriam as necessidades deles e as das vendendoras ou embaixadoras como foi dado o nome.
+	As principais dificuldades que obtive na construção do banco, foi desempenho, relação obrigatória e escabilidade.
+Para o desempenho, encontrei duas maneiras, utilizar indexes e lookup table, os index é agrupamento de dados e 
+valores únicos, e lookup table são valores do tipo enum, valores parões com exemplo de status initivo e ativo,
+em vez de escrever em uma tabela com string ou com enum, seria utilizado chaves estrangeiras do tipo int
+que torna a busca muito mais rápida, pois chaves estrangeiras são index por padrão.
+	A relação obrigatória é utilizado para ter uma conexão entre tabelas então criando dados mais integros além de
+separar os dados necessário em diferentes colunas para melhorar o desempenho quando se tratar de um busca ao banco de dados
+para solucinar esse problema foi necessário criar setores/conjuntos de dados, a seleção dos dados para cada setor é determinado
+se eles são usados muitas vezes na mesma função ou tela, então eles seriam colocados na mesma tabela.
+	E a escabilidade é quando se trata com a nescessidade do crescimento do sistema, seja em adicionar uma nova tabela ou então 
+uma coluna nova no banco, assim quando houver alguma mudança no sistema não é necessário ter que refazer todo o banco de dados
+então para isso foi feito um banco genérico e em seguida foi estruturado em cima deste banco os dados que seriam usados para 
+o gerenciamento, e ao criar muitas tabelas é criado espaços para ser adicionado outras tabelas que podem criar relações
+sem afetar o sistema final.
+
+	Para a API foi utilizado a linguagem PHP com o framework Laravel, o PHP foi escolhido pela experiencia anterior com a linguagem,
+e para o framework foi pesquisado quais os melhores frameworks para PHP, ao encontrar o Laravel e por já ter tido uma pequena experiência
+com este framework descidi usa-lo.
+Assim foi discutido com os supervisores qual seria o fluxo necessário que as embaixadoras deveriam seguir e quais seriam as funcionalidades
+que ajudariam no gerenciamento das vendas.
+	O principal problema foi a falta de experiência, ao começar a desenvolver no framework foi percebido que é criado vários valores padrões
+pelo próprio framework, então tive que voltar varias vezes para adicionar ou alterar o banco de dados, também foi descoberto que
+o framework utlizado é por padrão em serviços do tipo MVC e não API, então foi necessario a contrução funções para contornar esse problema
+e para ajudar a construir foi encontrado um tutorial de desenvolvimento de API.
+
+	E por útimo ficou o desenvolvimento do frontend ou também como chamado client side, ou seja, a parte que o administrador e as embaixadoras veem
+para construir está parte foi utilizado React JS, a escolha desta ferramento foi escolha do supervisor, por ser uma linguem rápida, e componentizavel 
+de fácil reutilização, as difilculdades encontradas foi a falta de experiência, mas ao utilizar componentes existentes na internet e alguns tutoriais
+obtive uma certa facilidade de sobrepor as dificuldades existentes.
+
+Para concluir o um grande aprendizado obtido através da experiência de desenvolver tal sistema, principalmente sozinho.
+O curso Engenharia da computação, me ajudou principalmente na fácilidade de aprender novas linguagens e no pensamento
+logico obtido através do curso.
+
+
